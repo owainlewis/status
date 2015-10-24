@@ -1,0 +1,106 @@
+// Colors
+
+@header: #08080a;
+@background: #1b1b24;
+@background2: #282936;
+@background3: #3d3d4d;
+@text: #8487af;
+@link: #a6a6ff;
+
+@green: #91ff00;
+@red: #ff0015;
+
+a, a:hover { color: @link; text-decoration: none; }
+
+body {
+  background: @background;
+  color: @text;
+  font-size: 14px;
+  font-family: 'Open Sans', 'Helvetica', 'sans-serif';
+}
+
+.main {
+  padding: 24px 0;
+}
+
+h1, h2, h3 { font-weight: bold; color: white; }
+
+h1 { font-size: 24px; }
+h2 { font-size: 20px; }
+h3 { font-size: 16px; margin: 0 0 12px 0 }
+
+.button {
+  padding: 12px 24px;
+  background: @background3;
+  color: white;
+  font-weight: bold;
+  display: inline-block;
+}
+
+input, textarea {
+  width: 100%;
+  padding: 12px 24px;
+  background: @background2;
+  border: 2px solid @background3;
+}
+
+ul { list-style: none; margin: 0; padding: 0; }
+
+header {
+  background: @header;
+  height: 48px;
+  box-shadow: 0 1px 0 rgba(40,41,54,0.75);
+
+  li { display: inline; line-height: 48px; margin-right: 12px; font-weight: bold; }
+}
+
+.production {
+   border: 4px solid @green;
+   margin: 24px auto;
+   width: 180px;
+   height: 180px;
+   border-radius: 100%;
+   text-align: center;
+
+   h3 { line-height: 180px; height: 180px; margin: 0; }
+}
+
+.hero {
+  h1, h2 { text-align: center; }
+
+  margin: 0 0 24px 0;
+}
+
+.summary {
+  width: 100%;
+  border: 2px solid @background3;
+  margin: 0 0 24px 0;
+  padding: 24px;
+}
+
+.incident {
+  width: 100%;
+  background: @background2;
+  margin: 0 0 6px 0;
+}
+
+.incident .header {
+  background: @background3;
+  padding: 24px;
+  box-shadow: 0 1px 0 rgba(255,255,255,0.1) inset;
+
+  h3 { margin: 0; }
+
+  h3 i { color: @green; margin-right: 12px; }
+}
+
+.incident .update {
+  padding: 24px;
+  background: @background2;
+  border-top: 3px solid @background;
+}
+
+.incident .body {
+  clear: both;
+  padding: 24px;
+}

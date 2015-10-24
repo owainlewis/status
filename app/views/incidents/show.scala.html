@@ -2,10 +2,25 @@
 
 @admin("Incident") {
 
-  <h1>@incident.title</h1>
-  <p>Status: @incident.status</p>
-  <p>Created @incident.created</p>
+<div class="incident">
 
-  <h2>Updates</h2>
+    <div class="header">
+        <h1>@incident.title</h1>
+    </div>
+    <div class="body">
+        <p>Status: @incident.status</p>
+        <p>Created @incident.created</p>
+    </div>
+
+    <div class="update">
+        <h3>Maintenance</h3>
+        <p>We are putting Heroku Scheduler into maintenance mode for database maintenance. Jobs that would be scheduled to run during the maintenance window will be executed when scheduler comes back.</p>
+    </div>
+    <div class="update">
+        <h3>Maintenance</h3>
+        <p>We are putting Heroku Scheduler into maintenance mode for database maintenance. Jobs that would be scheduled to run during the maintenance window will be executed when scheduler comes back.</p>
+    </div>
+
+</div>
 
 }

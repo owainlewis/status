@@ -7,8 +7,9 @@ import repository.IncidentRepository
 class Incidents extends Controller {
 
   def index = Action {
-    val incidents = IncidentRepository.all()
-    Ok(views.html.incidents.index(incidents))
+    val incidents = IncidentRepository.all().groupBy(_.dateForGrouping)
+    val active = IncidentRepository.active().length
+    Ok(views.html.incidents.index(incidents, active))
   }
 
   def add = Action {

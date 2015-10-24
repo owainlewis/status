@@ -1,3 +1,3 @@
 package forms
 
-case class IncidentData(title: String)
+case class IncidentData(title: String, description: String)

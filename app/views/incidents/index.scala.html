@@ -1,13 +1,37 @@
-@(incidents: Seq[model.Incident])
+@(incidents: Map[String, Seq[model.Incident]], active: Int)
+
 
 @admin("All incidents") {
-  <h1>All Incidents</h1>
 
-  <ul>
-    @incidents.map { incident =>
-      <li>
-          <a href="@routes.Incidents.show(incident.id.get)">@incident</a>
-      </li>
+<div class="hero">
+    <h1>Status</h1>
+    <h2>Current Incidents</h2>
+</div>
+
+<div class="summary">
+    There are @active active incidents
+</div>
+
+<div class="incidents row">
+    @incidents.map { case (k,v) =>
+
+    <div class="col-md-10">
+        @v.map { incident =>
+        <div class="incident">
+            <div class="header">
+              <a href="@routes.Incidents.show(incident.id.get)">
+                <h3><i class="fa fa-exclamation-triangle"></i> @incident.title</h3>
+              </a>
+            </div>
+            <div class="body">
+                <p>@incident.description</p>
+                <p>Created: @incident.created</p>
+            </div>
+        </div>
+        }
+    </div>
+
+    <div class="col-md-2"><h3>@k</h3></div>
     }
-  </ul>
+</div>
 }

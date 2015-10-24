@@ -5,8 +5,19 @@
   <h1>Create a new incident</h1>
 
   @helper.form(action = routes.Incidents.create) {
-    <input type="text" id="title" name="title"/>
-    <input class="btn btn-primary" type="submit" value="Create incident" />
+    <div class="field">
+        <label>Title</label>
+        <input type="text" id="title" name="title" placeholder="i.e Service down"/>
+    </div>
+
+    <div class="field">
+      <label>Description</label>
+      <textarea name="description" id="description" placeholder="Incident description...">
+
+      </textarea>
+    </div>
+
+    <input class="button" type="submit" value="Create incident" />
   }
 }
 
