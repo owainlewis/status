@@ -8,12 +8,14 @@ GET     /                     controllers.Incidents.index
 
 # Incidents
 
-GET  /admin/incidents         controllers.Incidents.index
-GET  /admin/incidents/new     controllers.Incidents.add
-GET  /admin/incidents/:id     controllers.Incidents.show(id: Long)
-POST /admin/incidents         controllers.Incidents.create
+GET  /incidents         controllers.Incidents.index
+GET  /incidents/:id     controllers.Incidents.show(id: Long)
 
-# Updates
+POST /incidents         controllers.Incidents.create
+
+# Admin Pages
+
+GET  /admin/incidents/new             controllers.Incidents.add
 
 GET /admin/incidents/:id/updates/new  controllers.Updates.add(id: Long)
 POST /admin/incidents/:id/updates     controllers.Updates.create(id: Long)
