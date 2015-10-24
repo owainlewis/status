@@ -22,7 +22,6 @@ object IncidentRepository {
 
   /**
    * Return all incidents from the database
-   *
    */
   def all(limit: Int = 100): Seq[Incident] = DB.withConnection { implicit c =>
     SQL(s"SELECT * FROM incidents ORDER BY id DESC LIMIT {limit}")
@@ -31,7 +30,6 @@ object IncidentRepository {
 
   /**
    * Find a single incident by ID
-   *
    */
   def findById(id: Long): Option[Incident] = DB.withConnection { implicit c =>
     SQL("SELECT * FROM incidents WHERE id = {id}")
@@ -40,7 +38,6 @@ object IncidentRepository {
 
   /**
    * Return the number of active incidents in the database
-   *
    */
   def active(): Seq[Incident] = DB.withConnection { implicit c =>
     SQL("SELECT * FROM incidents WHERE status = {status}")
@@ -49,10 +46,11 @@ object IncidentRepository {
 
   /**
    * Create a new incident
-   *
    */
   def create(incident: IncidentData): Option[Long] = DB.withConnection { implicit c =>
-    SQL(s"INSERT INTO incidents (title, description, status, created) VALUES ({title}, {description}, {status}, {created})")
+    val fields = "(title, description, status, created)"
+    val values = "({title}, {description}, {status}, {created})"
+    SQL(s"INSERT INTO incidents $fields VALUES $values")
       .on(
         'title -> incident.title,
         'description -> incident.description,

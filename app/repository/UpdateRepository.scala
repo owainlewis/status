@@ -8,7 +8,6 @@ import play.api.db.DB
 import play.api.Play.current
 
 object UpdateRepository {
-
   private val rowParser: RowParser[Update] = {
     get[Long]("id") ~
     get[Long]("incident") ~
@@ -21,7 +20,6 @@ object UpdateRepository {
 
   /**
    * Return all updates for a given incident
-   *
    */
   def all(incident: Long, limit: Int = 100): Seq[Update] = DB.withConnection { implicit c =>
     SQL(s"SELECT * FROM updates WHERE incident = {incident} ORDER BY id DESC LIMIT {limit}")
@@ -29,8 +27,7 @@ object UpdateRepository {
   }
 
   /**
-   * Find a single incident by ID
-   *
+   * Find a single update by ID
    */
   def findById(id: Long): Option[Update] = DB.withConnection { implicit c =>
     SQL("SELECT * FROM updates WHERE id = {id}")
@@ -38,11 +35,13 @@ object UpdateRepository {
   }
 
   /**
-   * Create a new incident
-   *
+   * Create a new update for an incident
    */
-  def create(incident: Long, title: String, description: String): Option[Long] = DB.withConnection { implicit c =>
-    SQL(s"INSERT INTO updates (incident, title, description, created) VALUES ({incident}, {title}, {description}, {created})")
+  def create(incident: Long, title: String, description: String): Option[Long] =
+    DB.withConnection { implicit c =>
+      val fields = "(incident, title, description, created)"
+      val values = "({incident}, {title}, {description}, {created})"
+      SQL(s"INSERT INTO updates $fields VALUES $values")
       .on(
         'incident -> incident,
         'title -> title,

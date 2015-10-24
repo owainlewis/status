@@ -1,0 +1,5 @@
+package integrations
+
+class Slack {
+
+}

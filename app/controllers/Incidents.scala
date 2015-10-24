@@ -27,10 +27,8 @@ class Incidents extends Controller {
 
   def create = Action { implicit request =>
     incidentForm.bindFromRequest.fold(
-      formWithErrors => {
-        Redirect(routes.Incidents.add())
-      },
-      incidentData => {
+      formWithErrors => { Redirect(routes.Incidents.add()) },
+      incidentData   => {
         IncidentRepository.create(incidentData)
         Redirect(routes.Incidents.index())
       }
