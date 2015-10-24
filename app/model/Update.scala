@@ -7,10 +7,9 @@ case class Update(id: Option[Long], incident: Long, title: String, description: 
 
 object Update {
   implicit val writer = new Writes[Update] {
-    def writes(update: Update): JsValue = {
+    def writes(update: Update): JsValue =
       Json.obj("title" -> update.title,
                "description" -> update.description,
-                "created" -> update.prettyDate)
-    }
+               "created" -> update.prettyDate)
   }
 }
