@@ -19,5 +19,4 @@ class Updates extends Controller {
   def delete(incident: Long, id: Long) = Action {
     NotImplemented
   }
-
 }
