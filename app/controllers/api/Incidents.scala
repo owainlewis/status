@@ -1,12 +1,13 @@
 package controllers.api
 
-import controllers.CRUD
 import play.api.mvc._
+import repository.IncidentRepository
+import play.api.libs.json._
 
-class Incidents extends Controller with CRUD {
+class Incidents extends Controller {
 
   def index = Action {
-    NotImplemented
+    Ok(Json.toJson(IncidentRepository.all()))
   }
 
   def show(id: Long) = Action {

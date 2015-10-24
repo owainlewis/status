@@ -1,7 +1,6 @@
 package controllers.api
 
 import play.api.mvc._
-import controllers.CRUD
 
 class Updates extends Controller {
 

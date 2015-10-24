@@ -3,14 +3,20 @@
 # ~~~~
 
 # Home page
-GET     /                           controllers.Application.index
 
-GET /incidents           controllers.Incidents.index
+GET     /                     controllers.Application.index
 
-GET /incidents/new      controllers.Incidents.add
-GET /incidents/:id        controllers.Incidents.show(id: Long)
+# Admin
 
-POST /incidents         controllers.Incidents.create
+GET  /admin/incidents         controllers.Incidents.index
+GET  /admin/incidents/new     controllers.Incidents.add
+GET  /admin/incidents/:id     controllers.Incidents.show(id: Long)
+POST /admin/incidents         controllers.Incidents.create
 
-# Map static resources from the /public folder to the /assets URL path
+# API
+
+GET /api/v1/incidents         controllers.api.Incidents.index
+
+# Misc
+
 GET     /assets/*file               controllers.Assets.versioned(path="/public", file: Asset)
