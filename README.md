@@ -21,7 +21,7 @@ Create a new incident
 ```
 curl -iXPOST http://localhost:9000/api/v1/incidents \
 -H "Content-Type: application/json" \
--d '{"title": "From API", "description": "This is a description"}'
+-d '{"title": "Database servers are down", "description": "We are experiencing database failures in US region"}'
 ```
 
 Delete an incident
