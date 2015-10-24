@@ -1,9 +1,29 @@
 # Status
 
-An open source status page application for communicating service incidents to customers.
+An open source, self hosted status page application for communicating service incidents to customers.
 
-It is heavily inspired by status.heroku.com
+It is heavily inspired by status.heroku.com and other status page applications.
+
+Please feel free to contribute if you have ideas.
 
 ![](https://raw.githubusercontent.com/owainlewis/status/master/public/images/preview.png)
+
+## API
+
+Status comes with a simple JSON api for adding data to your system and for integration with other services.
+
+Create a new incident
+
+```
+curl -iXPOST http://localhost:9000/api/v1/incidents \
+-H "Content-Type: application/json" \
+-d '{"title": "From API", "description": "This is a description"}'
+```
+
+Delete an incident
+
+```
+curl -iXDELETE http://localhost:9000/api/v1/incidents/5
+```
 
 

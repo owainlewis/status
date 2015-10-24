@@ -3,6 +3,7 @@ package controllers.api
 import play.api.mvc._
 import repository.IncidentRepository
 import play.api.libs.json._
+import forms.IncidentData
 
 class Incidents extends Controller {
 
@@ -16,8 +17,18 @@ class Incidents extends Controller {
     } getOrElse NotFound
   }
 
-  def create = Action {
-    NotImplemented
+  private def createIncident(json: JsValue) = {
+
+    json.asOpt[IncidentData].map { incident =>
+      IncidentRepository.create(incident)
+      Created.as("application/json")
+    }.getOrElse {
+      BadRequest.as("application/json")
+    }
+  }
+
+  def create = Action { implicit request =>
+    request.body.asJson.map (json => createIncident(json)) getOrElse BadRequest
   }
 
   def update(id: Long) = Action {
@@ -25,6 +36,7 @@ class Incidents extends Controller {
   }
 
   def delete(id: Long) = Action {
-   NotImplemented
+    IncidentRepository.delete(id)
+    Ok
   }
 }

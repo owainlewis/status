@@ -60,4 +60,8 @@ object IncidentRepository {
         'created -> new Date
       ).executeInsert()
   }
+
+  def delete(id: Long) = DB.withConnection { implicit c =>
+    SQL("DELETE FROM incidents where id = {id}").on('id -> id).execute
+  }
 }

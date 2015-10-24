@@ -6,7 +6,7 @@ import play.api.data.Forms._
 object Forms {
 
   val incidentForm = Form(
-    mapping("title" -> nonEmptyText, "description" -> text)
+    mapping("title" -> nonEmptyText, "description" -> optional(text))
       (IncidentData.apply)(IncidentData.unapply)
   )
 

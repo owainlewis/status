@@ -2,25 +2,29 @@
 
 @admin("Add an update for incident @incident") {
 
-<h1>Add update</h1>
+<div class="col-md-8 col-md-offset-2">
 
-@helper.form(action = routes.Updates.create(incident)) {
+    <h1>Add update</h1>
 
-<input type="hidden" value="@incident" name="incident" id="incident"/>
+    @helper.form(action = routes.Updates.create(incident)) {
 
-<div class="field">
-    <label>Title</label>
-    <input type="text" id="title" name="title" placeholder="i.e Service down"/>
-</div>
+    <input type="hidden" value="@incident" name="incident" id="incident"/>
 
-<div class="field">
-    <label>Description</label>
+    <div class="field">
+        <label>Title</label>
+        <input type="text" id="title" name="title" placeholder="i.e Service down"/>
+    </div>
+
+    <div class="field">
+        <label>Description</label>
       <textarea name="description" id="description" placeholder="Incident description...">
 
       </textarea>
-</div>
+    </div>
 
-<input class="button" type="submit" value="Create incident"/>
-}
+    <input class="button" type="submit" value="Add"/>
+    }
+
+</div>
 
 }

@@ -22,8 +22,14 @@ POST /admin/incidents/:id/updates     controllers.Updates.create(id: Long)
 
 # API
 
-GET /api/v1/incidents         controllers.api.Incidents.index
-GET /api/v1/incidents/:id     controllers.api.Incidents.show(id: Long)
+GET    /api/v1/incidents         controllers.api.Incidents.index
+
+GET    /api/v1/incidents/:id     controllers.api.Incidents.show(id: Long)
+DELETE /api/v1/incidents/:id     controllers.api.Incidents.delete(id: Long)
+
+POST   /api/v1/incidents         controllers.api.Incidents.create
+
+
 
 # Misc
 

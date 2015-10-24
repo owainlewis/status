@@ -2,6 +2,8 @@
 
 @admin("New incident") {
 
+  <div class="col-md-8 col-md-offset-2">
+
   <h1>Create a new incident</h1>
 
   @helper.form(action = routes.Incidents.create) {
@@ -17,7 +19,9 @@
       </textarea>
     </div>
 
-    <input class="button" type="submit" value="Create incident" />
+    <input class="button" type="submit" value="Add" />
   }
+
+  </div>
 }
 
