@@ -23,7 +23,6 @@ CREATE TABLE Updates(
     PRIMARY KEY (id)
 );
 
-
 # --- !Downs
 
 DROP TABLE Incidents;
