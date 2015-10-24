@@ -30,4 +30,11 @@ Delete an incident
 curl -iXDELETE http://localhost:9000/api/v1/incidents/5
 ```
 
+## Integrations
+
+TODO (integrations with twitter, slack etc)
+
+When an update is posted, also push a notification to twitter and slack.
+
+
 
