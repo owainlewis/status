@@ -1,0 +1,12 @@
+@(form: Form[forms.IncidentData])
+
+@admin("New incident") {
+
+  <h1>Create a new incident</h1>
+
+  @helper.form(action = routes.Incidents.create) {
+    <input type="text" id="title" name="title"/>
+    <input class="btn btn-primary" type="submit" value="Create incident" />
+  }
+}
+

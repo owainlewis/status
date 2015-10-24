@@ -1,0 +1,11 @@
+@(incident: model.Incident)
+
+@admin("Incident") {
+
+  <h1>@incident.title</h1>
+  <p>Status: @incident.status</p>
+  <p>Created @incident.created</p>
+
+  <h2>Updates</h2>
+
+}

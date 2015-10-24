@@ -1,0 +1,13 @@
+@(incidents: Seq[model.Incident])
+
+@admin("All incidents") {
+  <h1>All Incidents</h1>
+
+  <ul>
+    @incidents.map { incident =>
+      <li>
+          <a href="@routes.Incidents.show(incident.id.get)">@incident</a>
+      </li>
+    }
+  </ul>
+}

@@ -6,6 +6,7 @@ CREATE SEQUENCE incident_id_seq;
 CREATE TABLE Incidents(
     id bigint NOT NULL DEFAULT nextval('incident_id_seq'),
     title text NOT NULL,
+    status int NOT NULL,
     created TIMESTAMP WITH TIME ZONE NOT NULL,
     PRIMARY KEY (id)
 );

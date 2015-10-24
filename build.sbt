@@ -11,9 +11,9 @@ libraryDependencies ++= Seq(
   cache,
   ws,
   evolutions,
-  anorm,
-  "joda-time"      % "joda-time"  % "2.7",
-  "org.postgresql" % "postgresql" % "9.4-1204-jdbc42",
+  "com.typesafe.play" %% "anorm"      % "2.4.0",
+  "joda-time"          % "joda-time"  % "2.7",
+  "org.postgresql"     % "postgresql" % "9.4-1204-jdbc42",
   specs2 % Test
 )
 
