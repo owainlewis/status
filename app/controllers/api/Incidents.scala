@@ -11,7 +11,9 @@ class Incidents extends Controller {
   }
 
   def show(id: Long) = Action {
-    NotImplemented
+    IncidentRepository.findById(id) map { incident =>
+      Ok(Json.toJson(incident))
+    } getOrElse NotFound
   }
 
   def create = Action {

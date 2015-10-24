@@ -9,4 +9,9 @@ object Forms {
     mapping("title" -> nonEmptyText, "description" -> text)
       (IncidentData.apply)(IncidentData.unapply)
   )
+
+  val updateForm = Form(
+    mapping("incident" -> longNumber, "title" -> nonEmptyText, "description" -> text)
+      (UpdateData.apply)(UpdateData.unapply)
+  )
 }

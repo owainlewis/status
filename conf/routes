@@ -15,11 +15,13 @@ POST /admin/incidents         controllers.Incidents.create
 
 # Updates
 
-GET /admin/incidents/:id/new  controllers.Updates.add(id: Long)
+GET /admin/incidents/:id/updates/new  controllers.Updates.add(id: Long)
+POST /admin/incidents/:id/updates     controllers.Updates.create(id: Long)
 
 # API
 
 GET /api/v1/incidents         controllers.api.Incidents.index
+GET /api/v1/incidents/:id     controllers.api.Incidents.show(id: Long)
 
 # Misc
 

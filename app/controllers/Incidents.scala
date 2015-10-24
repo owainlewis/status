@@ -2,7 +2,7 @@ package controllers
 
 import play.api.mvc._
 import forms.Forms._
-import repository.IncidentRepository
+import repository.{UpdateRepository, IncidentRepository}
 
 class Incidents extends Controller {
 
@@ -13,12 +13,13 @@ class Incidents extends Controller {
   }
 
   def add = Action {
-    Ok(views.html.incidents.add(incidentForm))
+    Ok(views.html.internal.incidents.add(incidentForm))
   }
 
   def show(id: Long) = Action {
     IncidentRepository.findById(id) map { incident =>
-      Ok(views.html.incidents.show(incident))
+      val updates = UpdateRepository.all(id)
+      Ok(views.html.incidents.show(incident, updates))
     } getOrElse {
       NotFound(s"Could not find incident with id $id")
     }

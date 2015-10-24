@@ -1,4 +1,4 @@
-@(incident: model.Incident)
+@(incident: model.Incident, updates: Seq[model.Update])
 
 @admin("Incident") {
 
@@ -6,20 +6,21 @@
 
     <div class="header">
         <h1>@incident.title</h1>
+        <p><a href="@routes.Updates.add(incident.id.get)">Post an update</a></p>
     </div>
     <div class="body">
         <p>Status: @incident.status</p>
         <p>Created @incident.created</p>
     </div>
 
-    <div class="update">
-        <h3>Maintenance</h3>
-        <p>We are putting Heroku Scheduler into maintenance mode for database maintenance. Jobs that would be scheduled to run during the maintenance window will be executed when scheduler comes back.</p>
-    </div>
-    <div class="update">
-        <h3>Maintenance</h3>
-        <p>We are putting Heroku Scheduler into maintenance mode for database maintenance. Jobs that would be scheduled to run during the maintenance window will be executed when scheduler comes back.</p>
-    </div>
+    @updates.map { update =>
+
+      <div class="update">
+          <h3>@update.title</h3>
+          <p>@update.description</p>
+          <p>Posted: @update.created</p>
+      </div>
+    }
 
 </div>
 

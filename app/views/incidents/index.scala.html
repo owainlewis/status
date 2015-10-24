@@ -3,13 +3,8 @@
 
 @admin("All incidents") {
 
-<div class="hero">
-    <h1>Status</h1>
-    <h2>Current Incidents</h2>
-</div>
-
 <div class="summary">
-    There are @active active incidents
+    There are currently @active active incidents
 </div>
 
 <div class="incidents row">
@@ -20,7 +15,7 @@
         <div class="incident">
             <div class="header">
               <a href="@routes.Incidents.show(incident.id.get)">
-                <h3><i class="fa fa-exclamation-triangle"></i> @incident.title</h3>
+                <h3><i class="fa fa-exclamation-triangle"></i> <i class="fa fa-check"></i> @incident.title</h3>
               </a>
             </div>
             <div class="body">
