@@ -18,7 +18,6 @@ class Incidents extends Controller {
   }
 
   private def createIncident(json: JsValue) = {
-
     json.asOpt[IncidentData].map { incident =>
       IncidentRepository.create(incident)
       Created.as("application/json")
