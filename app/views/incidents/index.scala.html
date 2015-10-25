@@ -1,4 +1,4 @@
-@(incidents: Map[String, Seq[model.Incident]], active: Int)
+@(incidents: Map[String, Seq[model.Incident]], active: Int)(implicit request: play.api.mvc.RequestHeader)
 
 
 @admin("All incidents") {

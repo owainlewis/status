@@ -6,17 +6,17 @@ import repository.{UpdateRepository, IncidentRepository}
 
 class Incidents extends Controller {
 
-  def index = Action {
+  def index = Action { implicit request =>
     val incidents = IncidentRepository.all().groupBy(_.dateForGrouping)
     val active = IncidentRepository.active().length
     Ok(views.html.incidents.index(incidents, active))
   }
 
-  def add = Action {
+  def add = Action { implicit request =>
     Ok(views.html.internal.incidents.add(incidentForm))
   }
 
-  def show(id: Long) = Action {
+  def show(id: Long) = Action { implicit request =>
     IncidentRepository.findById(id) map { incident =>
       val updates = UpdateRepository.all(id)
       Ok(views.html.incidents.show(incident, updates))

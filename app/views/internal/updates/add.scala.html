@@ -1,4 +1,4 @@
-@(incident: Long, form: Form[forms.UpdateData])
+@(incident: Long, form: Form[forms.UpdateData])(implicit request: play.api.mvc.RequestHeader)
 
 @admin("Add an update for incident @incident") {
 

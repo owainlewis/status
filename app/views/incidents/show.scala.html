@@ -1,4 +1,4 @@
-@(incident: model.Incident, updates: Seq[model.Update])
+@(incident: model.Incident, updates: Seq[model.Update])(implicit request: play.api.mvc.RequestHeader)
 
 @admin("Incident") {
 
