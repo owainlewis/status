@@ -12,6 +12,16 @@ Please feel free to contribute if you have ideas.
 
 ![](https://raw.githubusercontent.com/owainlewis/status/master/public/images/preview2.png)
 
+## Getting started
+
+## Configuration
+
+| Config Value  | Description                  |
+|---------------|------------------------------|
+| auth.username | The admin username for login |
+| auth.password |                              |
+|               |                              |
+
 ## API
 
 Status comes with a simple JSON api for adding data to your system and for integration with other services.
