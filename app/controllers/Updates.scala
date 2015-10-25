@@ -5,9 +5,9 @@ import play.api.mvc._
 import forms.Forms.updateForm
 import repository.UpdateRepository
 
-class Updates extends Controller {
+class Updates extends Controller with Secured {
 
-  def add(incident: Long) = Action {
+  def add(incident: Long) = withAuth { username => implicit request =>
     Ok(views.html.internal.updates.add(incident, updateForm))
   }
 

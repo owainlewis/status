@@ -6,6 +6,12 @@
 
 GET     /                     controllers.Incidents.index
 
+# Auth
+
+GET    /login controllers.Auth.login
+POST   /login controllers.Auth.authenticate
+GET    /logout controllers.Auth.logout
+
 # Incidents
 
 GET  /incidents         controllers.Incidents.index
