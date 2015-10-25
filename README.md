@@ -19,7 +19,7 @@ Please feel free to contribute if you have ideas.
 | Config Value  | Description                  |
 |---------------|------------------------------|
 | auth.username | The admin username for login |
-| auth.password |                              |
+| auth.password | The admin password for login |
 |               |                              |
 
 ## API
