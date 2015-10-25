@@ -6,6 +6,9 @@ It is heavily inspired by status.heroku.com and other status page applications.
 
 A demo is available at https://systemstatus.herokuapp.com/
 
+Username: admin
+Password: 1234
+
 Please feel free to contribute if you have ideas.
 
 ![](https://raw.githubusercontent.com/owainlewis/status/master/public/images/preview.png)
