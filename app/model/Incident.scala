@@ -14,12 +14,9 @@ case class Incident(id: Option[Long],
 }
 
 object Incident {
-
   implicit val writer = new Writes[Incident] {
     def writes(incident: Incident): JsValue = {
-
       val updates = incident.id map (incident => UpdateRepository.all(incident)) getOrElse Nil
-
       Json.obj("title" -> incident.title,
                "description" -> incident.description,
                "status" -> incident.status.name,
