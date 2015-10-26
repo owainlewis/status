@@ -15,9 +15,13 @@ GET    /logout controllers.Auth.logout
 # Incidents
 
 GET  /incidents         controllers.Incidents.index
-GET  /incidents/:id     controllers.Incidents.show(id: Long)
-
 POST /incidents         controllers.Incidents.create
+
+GET  /incidents/:id     controllers.Incidents.show(id: Long)
+GET  /incidents/:id/edit controllers.Incidents.edit(id: Long)
+
+# Should be a PUT with Ajax
+POST  /incidents/:id      controllers.Incidents.update(id: Long)
 
 # Admin Pages
 
@@ -32,6 +36,7 @@ GET    /api/v1/incidents         controllers.api.Incidents.index
 
 GET    /api/v1/incidents/:id     controllers.api.Incidents.show(id: Long)
 DELETE /api/v1/incidents/:id     controllers.api.Incidents.delete(id: Long)
+PUT    /api/v1/incidents/:id     controllers.api.Incidents.update(id: Long)
 
 POST   /api/v1/incidents         controllers.api.Incidents.create
 

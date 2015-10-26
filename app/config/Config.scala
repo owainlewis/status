@@ -9,10 +9,10 @@ object Config {
   /**
    * The admin username
    */
-  val authUser = getString("auth.username")
+  val authUser = getString("auth.username").getOrElse("admin")
 
   /**
    * The admin password
    */
-  val authPass = getString("auth.password")
+  val authPass = getString("auth.password").getOrElse("password")
 }

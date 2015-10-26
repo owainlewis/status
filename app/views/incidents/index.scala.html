@@ -1,7 +1,11 @@
 @(incidents: Map[String, Seq[model.Incident]], active: Int)(implicit request: play.api.mvc.RequestHeader)
 
-
 @admin("All incidents") {
+
+<div class="hero">
+<h1>Monitise Operations</h1>
+<h2>Current sytem status</h2>
+</div>
 
 <div class="summary">
     There are currently @active active incidents
@@ -15,7 +19,17 @@
         <div class="incident">
             <div class="header">
               <a href="@routes.Incidents.show(incident.id.get)">
-                <h3><i class="fa fa-exclamation-triangle"></i> <i class="fa fa-check"></i> [@incident.status] @incident.title</h3>
+                <h3>
+                    @if(incident.status.intValue == 1) {
+                      <i class="fa fa-exclamation-triangle red"></i>
+                    } else {
+                      @if(incident.status.intValue == 2) {
+                        <i class="fa fa-question-circle yellow"></i>
+                      } else {
+                        <i class="fa fa-check green"></i>
+                      }
+                    }
+                    [@incident.status] @incident.title</h3>
               </a>
             </div>
             <div class="body">

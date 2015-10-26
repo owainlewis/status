@@ -6,9 +6,11 @@ import model._
 import java.util.Date
 import play.api.db.DB
 import play.api.Play.current
-import forms.IncidentData
+import forms.{IncidentDataWithStatus, IncidentData}
 
-object IncidentRepository {
+import scala.collection.immutable.ListMap
+
+trait IncidentRepositoryFunctions {
 
   private val rowParser: RowParser[Incident] = {
     get[Long]("id") ~
@@ -28,6 +30,11 @@ object IncidentRepository {
       .on('limit -> limit).as(rowParser.*)
   }
 
+  type IncidentDate = String
+
+  def allGroupedByDate(limit: Int = 100): Map[IncidentDate, Seq[Incident]] =
+    ListMap(all().groupBy(_.dateForGrouping).toSeq.sortWith(_._1 > _._1):_*).toMap
+
   /**
    * Find a single incident by ID
    */
@@ -42,6 +49,23 @@ object IncidentRepository {
   def active(): Seq[Incident] = DB.withConnection { implicit c =>
     SQL("SELECT * FROM incidents WHERE status = {status}")
       .on('status -> Active.intValue).as(rowParser.*)
+  }
+
+  def update(incidentId: Long, data: IncidentDataWithStatus): Option[Int] = DB.withConnection { implicit c =>
+
+    findById(incidentId) map { incident =>
+
+      val title = data.title.getOrElse(incident.title)
+      val description = data.description.getOrElse(incident.description)
+      val status = data.status.getOrElse(incident.status.intValue)
+
+      SQL("UPDATE incidents SET title={title}, description={description}, status={status} WHERE id={id}")
+        .on('title -> title,
+          'description -> description,
+          'status -> status,
+          'id -> incidentId)
+        .executeUpdate()
+    }
   }
 
   /**
@@ -63,3 +87,5 @@ object IncidentRepository {
     SQL("DELETE FROM incidents where id = {id}").on('id -> id).execute
   }
 }
+
+object IncidentRepository extends IncidentRepositoryFunctions

@@ -2,23 +2,20 @@
 
 @admin("Login") {
 
-  <h1>Login</h1>
+<div class="col-md-8 col-md-offset-2">
+    <h1>Login</h1>
+    @helper.form(action = routes.Auth.authenticate) {
 
-  @helper.form(action = routes.Auth.authenticate) {
+    <div class="field">
+        <label>Username</label>
+        <input type="text" id="username" name="username"/>
+    </div>
 
-<div class="field">
-    <label>Username</label>
-    <input type="text" id="username" name="username"/>
-</div>
+    <div class="field">
+        <label>Username</label>
+        <input type="password" id="password" name="password"/>
+    </div>
 
-<div class="field">
-    <label>Username</label>
-    <input type="password" id="password" name="password"/>
-</div>
-
-<input class="button" type="submit" value="Login"/>
-}
-
-
-
+    <input class="button" type="submit" value="Login"/>
+</div>}
 }

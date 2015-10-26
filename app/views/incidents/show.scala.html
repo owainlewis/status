@@ -6,7 +6,13 @@
 
     <div class="header">
         <h1>@incident.title</h1>
-        <p><a href="@routes.Updates.add(incident.id.get)">Post an update</a></p>
+
+        @if(!request.session.isEmpty) {
+          <p>
+              <a href="@routes.Incidents.edit(incident.id.get)">Edit</a> |
+              <a href="@routes.Updates.add(incident.id.get)">Post an update</a>
+          </p>
+        }
     </div>
     <div class="body">
         <p>Status: @incident.status</p>

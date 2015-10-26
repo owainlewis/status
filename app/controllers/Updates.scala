@@ -7,11 +7,11 @@ import repository.UpdateRepository
 
 class Updates extends Controller with Secured {
 
-  def add(incident: Long) = withAuth { username => implicit request =>
+  def add(incident: Long) = withAuth { _ => implicit request =>
     Ok(views.html.internal.updates.add(incident, updateForm))
   }
 
-  def create(incident: Long) = Action { implicit request =>
+  def create(incident: Long) = withAuth { _ => implicit request =>
     updateForm.bindFromRequest.fold(
       formWithErrors => { Redirect(routes.Updates.add(incident)) },
       data => {

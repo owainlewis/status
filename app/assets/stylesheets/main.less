@@ -9,6 +9,7 @@
 
 @green: #91ff00;
 @red: #ff0015;
+@yellow: #ffa500;
 
 a, a:hover { color: @link; text-decoration: none; }
 
@@ -39,6 +40,10 @@ h1 { font-size: 24px; }
 h2 { font-size: 20px; }
 h3 { font-size: 16px; margin: 0 0 12px 0 }
 
+.green  { color: @green;  }
+.yellow { color: @yellow; }
+.red    { color: @red;    }
+
 // Forms
 
 .field {
@@ -54,12 +59,14 @@ h3 { font-size: 16px; margin: 0 0 12px 0 }
   max-width: 200px;
 }
 
-input, textarea {
+input, textarea, select {
   width: 100%;
   padding: 12px 24px;
   background: @background2;
   border: 2px solid @background3;
 }
+
+select { display: block; }
 
 ul { list-style: none; margin: 0; padding: 0; }
 
@@ -70,6 +77,8 @@ header {
 
   li { display: inline; line-height: 48px; margin-right: 12px; font-weight: bold; }
 }
+
+.f-right { text-align: right; }
 
 .production {
    border: 4px solid @green;
@@ -108,7 +117,7 @@ header {
 
   h3 { margin: 0; }
 
-  h3 i { color: @green; margin-right: 12px; }
+  h3 i { margin-right: 12px; }
 }
 
 .incident .update {

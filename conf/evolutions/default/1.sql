@@ -19,7 +19,7 @@ CREATE TABLE Updates(
     title text NOT NULL,
     description text,
     created TIMESTAMP WITH TIME ZONE NOT NULL,
-    FOREIGN KEY (incident) REFERENCES Incidents(id),
+    FOREIGN KEY (incident) REFERENCES Incidents(id) ON DELETE CASCADE,
     PRIMARY KEY (id)
 );
 

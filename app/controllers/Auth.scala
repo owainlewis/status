@@ -1,5 +1,6 @@
 package controllers
 
+import config.Config
 import model.Login
 import play.api.data.Form
 import play.api.data.Forms._
@@ -27,7 +28,7 @@ class Auth extends Controller {
 
   /** TODO get these from config */
   private def check(login: Login): Boolean =
-    login.username == "admin" && login.password == "1234"
+    login.username == Config.authUser && login.password == Config.authPass
 
   def login = Action { implicit request =>
     Ok(views.html.login(loginForm))

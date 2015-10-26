@@ -1,0 +1,40 @@
+@(incident: model.Incident, form: Form[forms.IncidentData])(implicit request: play.api.mvc.RequestHeader)
+
+@admin("New incident") {
+
+<div class="col-md-8 col-md-offset-2">
+
+    <h1>Edit</h1>
+
+    @helper.form(action = routes.Incidents.update(incident.id.get)) {
+    <div class="field">
+        <label>Title</label>
+        <input type="text" id="title"
+               name="title" placeholder="i.e Service down" value="@incident.title"/>
+    </div>
+
+    <div class="field">
+      <label>Description</label>
+      <textarea name="description" id="description"
+                placeholder="Incident description...">@incident.description</textarea>
+    </div>
+
+    <div class="field">
+        <label>Status</label>
+        <select id="status" name="status">
+        @model.Status.allStatuses.map { status =>
+            <option value="@status.intValue">
+                @status.name
+            </option>
+        }
+        </select>
+    </div>
+
+    <div class="field">
+      <input class="button" type="submit" value="Add"/>
+    </div>
+    }
+
+</div>
+
+}

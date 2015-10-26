@@ -17,6 +17,8 @@ object Status {
     case Active => Some(1)
     case _ => None
   }
+
+  val allStatuses = List(Active, Ongoing, Resolved)
 }
 
 case object Active   extends Status { val intValue = 1; val name = "Active"   }
