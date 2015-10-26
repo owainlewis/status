@@ -18,7 +18,7 @@ Please feel free to contribute if you have ideas.
 ## TODO
 
 + Service overview page
-+ Web hook integrations (Slack)
++ ~~Web hook integrations (Slack)~~
 + Twitter Integration
 
 ## Getting started
