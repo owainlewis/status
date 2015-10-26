@@ -26,6 +26,7 @@ Please feel free to contribute if you have ideas.
 The quickest way to get your own version running is to use Heroku. Assuming you have a Heroku account then the app can be deployed in under a minute.
 
 ```
+git clone https://github.com/owainlewis/status.git && cd status
 heroku create 
 # Generate a random secret key and set as an environment variable
 heroku config:set APPLICATION_SECRET="SECRETKEY"
