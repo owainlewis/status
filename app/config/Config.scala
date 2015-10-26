@@ -3,11 +3,16 @@ package config
 import play.api.Play
 
 object Config {
-  private def getString(k: String): Option[String] = Play.current.configuration.getString(k)
+  
+  private def getString(k: String): Option[String] = 
+    Play.current.configuration.getString(k)
 
-  private def getOr(k: String, v: String) = getString(k).getOrElse(v)
+  private def getOr(k: String, v: String) = 
+    getString(k).getOrElse(v)
 
-  val backgroundEnabled = Play.current.configuration.getBoolean("background.enabled").getOrElse(true)
+  val backgroundEnabled = 
+   Play.current.configuration.getBoolean("background.enabled")
+     .getOrElse(true)
 
   /**
    * The title shown on the main incidents page
