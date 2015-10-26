@@ -3,7 +3,8 @@ package controllers.api
 import play.api.mvc._
 import scala.concurrent.Future
 
-final class BasicAuthAction(username: String, password: String) extends ActionBuilder[Request] with ActionFilter[Request] {
+final class BasicAuthAction(username: String, password: String) 
+  extends ActionBuilder[Request] with ActionFilter[Request] {
 
   private val unauthorized =
     Results.Unauthorized.withHeaders("WWW-Authenticate" -> "Basic realm=Unauthorized")
