@@ -1,5 +1,3 @@
-# Users schema
-
 # --- !Ups
 
 CREATE SEQUENCE incident_id_seq;
