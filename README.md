@@ -72,11 +72,20 @@ curl -iXDELETE http://localhost:9000/api/v1/incidents/5
 
 ## Integrations
 
-Slack is currently a supported notification type. When you create an incident.
+## Slack
 
-TODO (integrations with twitter, slack etc)
+When you create an incident you can configure status to send a notification to a Slack channel
 
-When an update is posted, also push a notification to twitter and slack.
+```
+slack.endpoint="https://hooks.slack.com/services/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"
+```
+
+See https://api.slack.com/incoming-webhooks for more information.
+
+### Coming Soon 
+
++ SMS
++ Email
 
 
 
