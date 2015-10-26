@@ -11,9 +11,9 @@ Password: 1234
 
 Please feel free to contribute if you have ideas.
 
-![](https://raw.githubusercontent.com/owainlewis/status/master/public/images/preview.png)
+![](https://raw.githubusercontent.com/owainlewis/status/master/public/images/previewa.png)
 
-![](https://raw.githubusercontent.com/owainlewis/status/master/public/images/preview2.png)
+![](https://raw.githubusercontent.com/owainlewis/status/master/public/images/previewb.png)
 
 ## Getting started
 
