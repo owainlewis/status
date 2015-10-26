@@ -2,16 +2,7 @@
 
 @admin("All incidents") {
 
-<div class="hero">
-<h1>Monitise Operations</h1>
-<h2>Current sytem status</h2>
-</div>
-
-<div class="summary">
-    There are currently @active active incidents
-</div>
-
-<div class="incidents row">
+<div class="incidents">
     @incidents.map { case (k,v) =>
 
     <div class="col-md-10">
@@ -40,7 +31,7 @@
         }
     </div>
 
-    <div class="col-md-2"><h3>@k</h3></div>
+    <div class="col-md-2 hide-mobile"><h3>@k</h3></div>
     }
 </div>
 }

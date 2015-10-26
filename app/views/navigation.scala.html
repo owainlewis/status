@@ -1,26 +1,18 @@
 @()(implicit request: play.api.mvc.RequestHeader)
 <header>
-    <div class="container">
+    <div class="outer">
         <nav>
-
-            <div class="col-md-8">
-                <ul>
-                    <li><a href="@routes.Incidents.index">Incidents</a></li>
-                    @if(!request.session.isEmpty) {
-                    <li><a href="@routes.Incidents.add">Create incident</a></li>
-                    }
-                </ul>
-            </div>
-            <div class="col-md-4 f-right">
-                <ul>
-                    @if(request.session.isEmpty) {
-                    <li><a href="@routes.Auth.login">Log in</a></li>
-                    } else {
-                    <li><a href="@routes.Auth.logout">Logout</a></li>
-                    }
-                </ul>
-            </div>
-
+            <ul>
+                <li><a href="@routes.Incidents.index">Current Status</a></li>
+                @if(!request.session.isEmpty) {
+                <li><a href="@routes.Incidents.add">Create incident</a></li>
+                }
+                @if(request.session.isEmpty) {
+                <li><a class="f-right" href="@routes.Auth.login">Log in</a></li>
+                } else {
+                <li><a class="f-right" href="@routes.Auth.logout">Logout</a></li>
+                }
+            </ul>
         </nav>
     </div>
 </header>

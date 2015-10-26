@@ -18,7 +18,10 @@
     <script src='@routes.Assets.versioned("javascripts/hello.js")' type="text/javascript"></script>
     </head>
     <body>
-      <div class="overlay"></div>
+
+      @if(config.Config.backgroundEnabled) {
+        <div class="overlay"></div>
+      }
 
       @navigation()
 

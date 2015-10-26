@@ -13,6 +13,10 @@
 
 a, a:hover { color: @link; text-decoration: none; }
 
+.outer { padding: 0 48px; }
+
+.main { max-width: 1024px; }
+
 body {
   background: @background;
   color: @text;
@@ -21,10 +25,10 @@ body {
 }
 
 .overlay {
-  background: url(/assets/images/people.jpg) no-repeat center fixed;
+  background: url(/assets/images/people.jpg) no-repeat center;
   background-size: cover;
   opacity: 0.05;
-  position: fixed;
+  position: absolute;
   width: 100%;
   height: 100%;
   z-index: -1;
@@ -32,6 +36,12 @@ body {
 
 .main {
   padding: 24px 0;
+}
+
+@media (max-width: 1024px) {
+  .hide-mobile {
+    display: none;
+  }
 }
 
 h1, h2, h3 { font-weight: bold; color: white; }
@@ -80,8 +90,7 @@ header {
 
 .f-right { text-align: right; }
 
-.production {
-   border: 4px solid @green;
+.circle {
    margin: 24px auto;
    width: 180px;
    height: 180px;
@@ -91,17 +100,18 @@ header {
    h3 { line-height: 180px; height: 180px; margin: 0; }
 }
 
+.green-circle  { border: 4px solid @green; }
+.yellow-circle { border: 4px solid @yellow; }
+.red-circle    { border: 4px solid @red; }
+
 .hero {
   h1, h2 { text-align: center; }
 
-  margin: 0 0 24px 0;
+  padding: 0 0 48px 0;
 }
 
 .summary {
-  width: 100%;
-  border: 2px solid @background3;
-  margin: 0 0 24px 0;
-  padding: 24px;
+  margin: 0 0 48px 0;
 }
 
 .incident {
