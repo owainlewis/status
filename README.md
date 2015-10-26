@@ -20,6 +20,8 @@ Please feel free to contribute if you have ideas.
 + Service overview page
 + ~~Web hook integrations (Slack)~~
 + Twitter Integration
++ Email notifications
++ SMS notifications
 
 ## Getting started
 
