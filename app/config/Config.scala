@@ -12,7 +12,7 @@ object Config {
 
   val backgroundEnabled = 
    Play.current.configuration.getBoolean("background.enabled")
-     .getOrElse(true)
+     .getOrElse(false)
 
   /**
    * The title shown on the main incidents page
@@ -28,4 +28,10 @@ object Config {
    * The admin password
    */
   val authPass = getOr("auth.password", "password")
+
+  val slackEnabled =
+    Play.current.configuration.getBoolean("slack.enabled")
+      .getOrElse(false)
+
+  val slackURL = getString("slack.endpoint")
 }

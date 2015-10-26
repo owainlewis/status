@@ -1,10 +1,15 @@
 package controllers
 
+import integrations.{Dispatcher, Slack}
 import play.api.mvc._
 import forms.Forms._
+import config.Config
+
 import repository.{UpdateRepository, IncidentRepository}
 
 class Incidents extends Controller with Secured {
+
+  private val slack = new Slack(Config.slackURL.get)
 
   // Public actions
 
@@ -53,6 +58,8 @@ class Incidents extends Controller with Secured {
     incidentForm.bindFromRequest.fold(
       formWithErrors => { Redirect(routes.Incidents.add()) },
       incidentData   => {
+        // Send web hook and other notifications
+        Dispatcher.dispatch(incidentData)
         IncidentRepository.create(incidentData)
         Redirect(routes.Incidents.index())
       }

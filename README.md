@@ -72,9 +72,13 @@ curl -iXDELETE http://localhost:9000/api/v1/incidents/5
 
 ## Integrations
 
+Slack is currently a supported notification type. When you create an incident.
+
 TODO (integrations with twitter, slack etc)
 
 When an update is posted, also push a notification to twitter and slack.
+
+
 
 
 
