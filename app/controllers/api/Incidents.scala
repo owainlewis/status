@@ -4,7 +4,7 @@ import config.Config
 import play.api.mvc._
 import repository.IncidentRepository
 import play.api.libs.json._
-import forms.{IncidentDataWithStatus, IncidentData}
+import forms.IncidentData
 
 class Incidents extends Controller {
 
@@ -34,8 +34,8 @@ class Incidents extends Controller {
   }
 
   private def updateIncident(id: Long, json: JsValue): Status = {
-    json.asOpt[IncidentDataWithStatus].map { dataWithStatus =>
-      IncidentRepository.update(id, dataWithStatus)
+    json.asOpt[IncidentData].map { data =>
+      IncidentRepository.update(id, data)
       Ok
     }.getOrElse { BadRequest }
   }

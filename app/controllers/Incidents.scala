@@ -38,7 +38,7 @@ class Incidents extends Controller with Secured {
   }
 
   def update(id: Long) = withAuth { _ => implicit request =>
-    incidentFormWithStatus.bindFromRequest.fold(
+    incidentForm.bindFromRequest.fold(
       formWithErrors => {
         Redirect(routes.Incidents.edit(id))
       },

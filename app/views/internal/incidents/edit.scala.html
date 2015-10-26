@@ -14,24 +14,24 @@
     </div>
 
     <div class="field">
+        <label>Incident Status</label>
+        <ul>
+            @model.Status.allStatuses.map { status =>
+            <li class="radio"><input type="radio" name="status" value="@status.intValue">
+                <span>@status.name</span>
+            </li>
+            }
+        </ul>
+    </div>
+
+    <div class="field">
       <label>Description</label>
       <textarea name="description" id="description"
                 placeholder="Incident description...">@incident.description</textarea>
     </div>
 
     <div class="field">
-        <label>Status</label>
-        <select id="status" name="status">
-        @model.Status.allStatuses.map { status =>
-            <option value="@status.intValue">
-                @status.name
-            </option>
-        }
-        </select>
-    </div>
-
-    <div class="field">
-      <input class="button" type="submit" value="Add"/>
+      <input class="button" type="submit" value="Save"/>
     </div>
     }
 

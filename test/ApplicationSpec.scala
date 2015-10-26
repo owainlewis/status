@@ -7,10 +7,10 @@ import play.api.test.Helpers._
 @RunWith(classOf[JUnitRunner])
 class ApplicationSpec extends Specification {
 
-  "Application" should {
+  private def getStatus(url: String) =
+    status(route(FakeRequest(GET, url)).get)
 
-    def getStatus(url: String) =
-      status(route(FakeRequest(GET, url)).get)
+  "Application" should {
 
     "render the index page" in new WithApplication {
       getStatus("/") must equalTo(OK)
@@ -20,12 +20,19 @@ class ApplicationSpec extends Specification {
       getStatus("/login") must equalTo(OK)
     }
 
+    "render the components page" in new WithApplication {
+      getStatus("/components") must equalTo(OK)
+    }
+
+    "render the incidents page" in new WithApplication {
+      getStatus("/incidents") must equalTo(OK)
+    }
+
     "return not found when incident doesn't exist" in new WithApplication {
       // getStatus("/incidents/1") must equalTo(NOT_FOUND)
     }
 
     "return redirect when accessing private endpoints" in new WithApplication {
-
     }
   }
 }

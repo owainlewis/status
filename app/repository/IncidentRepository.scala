@@ -1,12 +1,13 @@
 package repository
 
+import java.util.Date
+
 import anorm.SqlParser._
 import anorm._
+import forms.IncidentData
 import model._
-import java.util.Date
-import play.api.db.DB
 import play.api.Play.current
-import forms.{IncidentDataWithStatus, IncidentData}
+import play.api.db.DB
 
 import scala.collection.immutable.ListMap
 
@@ -47,22 +48,16 @@ trait IncidentRepositoryFunctions {
    * Return the number of active incidents in the database
    */
   def active(): Seq[Incident] = DB.withConnection { implicit c =>
-    SQL("SELECT * FROM incidents WHERE status = {status}")
-      .on('status -> Active.intValue).as(rowParser.*)
+    SQL("SELECT * FROM incidents WHERE status != {status}")
+      .on('status -> Resolved.intValue).as(rowParser.*)
   }
 
-  def update(incidentId: Long, data: IncidentDataWithStatus): Option[Int] = DB.withConnection { implicit c =>
-
+  def update(incidentId: Long, data: IncidentData): Option[Int] = DB.withConnection { implicit c =>
     findById(incidentId) map { incident =>
-
-      val title = data.title.getOrElse(incident.title)
-      val description = data.description.getOrElse(incident.description)
-      val status = data.status.getOrElse(incident.status.intValue)
-
       SQL("UPDATE incidents SET title={title}, description={description}, status={status} WHERE id={id}")
-        .on('title -> title,
-          'description -> description,
-          'status -> status,
+        .on('title -> data.title,
+          'description -> data.description,
+          'status -> data.status,
           'id -> incidentId)
         .executeUpdate()
     }
@@ -78,7 +73,7 @@ trait IncidentRepositoryFunctions {
       .on(
         'title -> incident.title,
         'description -> incident.description,
-        'status -> Active.intValue,
+        'status -> incident.status,
         'created -> new Date
       ).executeInsert()
   }

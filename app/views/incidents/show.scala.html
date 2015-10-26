@@ -15,8 +15,8 @@
         }
     </div>
     <div class="body">
-        <p>Status: @incident.status</p>
-        <p>Created @incident.created</p>
+        <p>@incident.status</p>
+        <p>@incident.prettyDate</p>
     </div>
 
     @updates.map { update =>

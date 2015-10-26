@@ -3,7 +3,15 @@ package model
 import play.api.libs.json._
 import repository.UpdateRepository
 
-case class Incident(id: Option[Long], title: String, description: String, status: Status, created: java.util.Date) extends extensions.Time
+case class Incident(id: Option[Long],
+                    title: String,
+                    description: String,
+                    status: Status,
+                    created: java.util.Date) extends extensions.Time {
+
+  def updates: Seq[Update] =
+    this.id map { UpdateRepository.all(_) } getOrElse Nil
+}
 
 object Incident {
 

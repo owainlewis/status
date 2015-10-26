@@ -1,0 +1,33 @@
+@(incidents: Map[String, Seq[model.Incident]])(implicit request: play.api.mvc.RequestHeader)
+@admin("Component status page") {
+
+  <h1>Components</h1>
+
+  <table class="table table-striped">
+      <tr>
+          <th>Component</th>
+          <th>Status</th>
+      </tr>
+      <tr>
+          <td>API</td>
+          <td>Operational</td>
+      </tr>
+      <tr>
+          <td>API</td>
+          <td>Operational</td>
+      </tr>
+      <tr>
+          <td>API</td>
+          <td>Operational</td>
+      </tr>
+  </table>
+
+  <h2>Past Incidents</h2>
+
+  @incidents.map { case (k,v) =>
+    <h3>@k</h3>
+    @v.map { incident =>
+      <p>@incident.title</p>
+    }
+  }
+}

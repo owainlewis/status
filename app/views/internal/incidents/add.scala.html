@@ -2,26 +2,35 @@
 
 @admin("New incident") {
 
-  <div class="col-md-8 col-md-offset-2">
+<div class="col-md-8 col-md-offset-2">
 
-  <h1>Create a new incident</h1>
+    <h1>Create a new incident</h1>
 
-  @helper.form(action = routes.Incidents.create) {
+    @helper.form(action = routes.Incidents.create) {
     <div class="field">
-        <label>Title</label>
+        <label>Incident Title</label>
         <input type="text" id="title" name="title" placeholder="i.e Service down"/>
     </div>
 
     <div class="field">
-      <label>Description</label>
-      <textarea name="description" id="description" placeholder="Incident description...">
-
-      </textarea>
+        <label>Incident Status</label>
+        <ul>
+        @model.Status.allStatuses.map { status =>
+          <li class="radio"><input type="radio" name="status" value="@status.intValue">
+              <span>@status.name</span>
+          </li>
+        }
+       </ul>
     </div>
 
-    <input class="button" type="submit" value="Add" />
-  }
+    <div class="field">
+        <label>Message</label>
+        <textarea name="description" id="description" placeholder="Incident description..."></textarea>
+    </div>
 
-  </div>
+    <input class="button" type="submit" value="Add"/>
+    }
+
+</div>
 }
 

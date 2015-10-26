@@ -1,6 +1,12 @@
 @(incidents: Map[String, Seq[model.Incident]], active: Int)(implicit request: play.api.mvc.RequestHeader)
 
+@import helpers.ViewHelper.pluralize
+
 @admin("All incidents") {
+
+<div class="summary">
+  <h3>@active unresolved @pluralize(active, "incident")</h3>
+</div>
 
 <div class="incidents">
     @incidents.map { case (k,v) =>
@@ -11,21 +17,14 @@
             <div class="header">
               <a href="@routes.Incidents.show(incident.id.get)">
                 <h3>
-                    @if(incident.status.intValue == 1) {
-                      <i class="fa fa-exclamation-triangle red"></i>
-                    } else {
-                      @if(incident.status.intValue == 2) {
-                        <i class="fa fa-question-circle yellow"></i>
-                      } else {
-                        <i class="fa fa-check green"></i>
-                      }
-                    }
+                    <i class="fa @incident.status.iconClass"></i>
                     [@incident.status] @incident.title</h3>
               </a>
             </div>
             <div class="body">
+                <p>@incident.updates.length @pluralize(incident.updates.length, "update")</p>
                 <p>@incident.description</p>
-                <p>Created: @incident.created</p>
+                <p>Created: @incident.prettyDate</p>
             </div>
         </div>
         }
