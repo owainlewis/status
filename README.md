@@ -17,6 +17,27 @@ Please feel free to contribute if you have ideas.
 
 ## Getting started
 
+The quickest way to get your own version running is to use Heroku. Assuming you have a Heroku account then the app can be deployed in under a minute.
+
+```
+heroku create 
+# Generate a random secret key and set as an environment variable
+heroku config:set APPLICATION_SECRET="SECRETKEY"
+heroku config:set STATUS_USERNAME="username"
+heroku config:set STATUS_PASSWORD="password"
+git push heroku master
+```
+
+## Local development
+
+Status is a standard Play framework application written in Scala. It requires PostgreSQL. 
+
+If you are familar with the Scala ecosystem (and have activator installed) then you can run with:
+
+```
+createdb status && activator run 
+```
+
 ## Configuration
 
 | Config Value  | Description                  |
