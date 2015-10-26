@@ -1,4 +1,4 @@
-# Status
+# Status (Work In Progress)
 
 An open source, self hosted status page application for communicating service incidents to customers.
 
@@ -14,6 +14,12 @@ Please feel free to contribute if you have ideas.
 ![](https://raw.githubusercontent.com/owainlewis/status/master/public/images/previewa.png)
 
 ![](https://raw.githubusercontent.com/owainlewis/status/master/public/images/previewb.png)
+
+## TODO
+
++ Service overview page
++ Web hook integrations (Slack)
++ Twitter Integration
 
 ## Getting started
 
