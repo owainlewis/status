@@ -57,20 +57,20 @@ createdb status && activator run
 
 ## API
 
-Status comes with a simple JSON api for adding data to your system and for integration with other services.
+Status comes with a simple JSON REST api for adding data to your system and for integration with other services.
 
-Create a new incident
+It uses basic authentication (I know) to keep things simple.
+
+Example request to get all incidents
 
 ```
-curl -iXPOST http://localhost:9000/api/v1/incidents \
--H "Content-Type: application/json" \
--d '{"title": "Database servers are down", "description": "We are experiencing database failures in US region"}'
+curl -u user:pass -i http://localhost:9000/api/v1/incidents
 ```
 
 Delete an incident
 
 ```
-curl -iXDELETE http://localhost:9000/api/v1/incidents/5
+curl -iXDELETE -u user:pass http://localhost:9000/api/v1/incidents/5
 ```
 
 ## Integrations
