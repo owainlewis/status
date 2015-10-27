@@ -7,7 +7,7 @@ It is heavily inspired by status.heroku.com and other status page applications s
 A demo is available at https://systemstatus.herokuapp.com/
 
 Username: admin
-Password: 1234
+Password: password
 
 Please feel free to contribute if you have ideas.
 
