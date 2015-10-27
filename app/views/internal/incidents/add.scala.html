@@ -16,7 +16,13 @@
         <label>Incident Status</label>
         <ul>
         @model.Status.allStatuses.map { status =>
-          <li class="radio"><input type="radio" name="status" value="@status.intValue">
+
+          <li class="radio">
+              @if(status.intValue == 1) {
+              <input type="radio" name="status" checked="checked" value="@status.intValue">
+              } else {
+              <input type="radio" name="status" value="@status.intValue">
+              }
               <span>@status.name</span>
           </li>
         }

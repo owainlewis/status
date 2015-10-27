@@ -12,7 +12,7 @@ object UpdateRepository {
     get[Long]("id") ~
     get[Long]("incident") ~
     get[String]("title") ~
-    get[String]("description") ~
+    get[Option[String]]("description") ~
     get[Date]("created") map {  case id ~ incident ~ title ~ description ~ created =>
       Update(Some(id), incident, title, description, created)
     }

@@ -2,7 +2,7 @@ package model
 
 import play.api.libs.json.{Json, JsValue, Writes}
 
-case class Update(id: Option[Long], incident: Long, title: String, description: String, created: java.util.Date)
+case class Update(id: Option[Long], incident: Long, title: String, description: Option[String], created: java.util.Date)
   extends extensions.Time
 
 object Update {

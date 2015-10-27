@@ -16,7 +16,7 @@ trait IncidentRepositoryFunctions {
   private val rowParser: RowParser[Incident] = {
     get[Long]("id") ~
     get[String]("title") ~
-    get[String]("description") ~
+    get[Option[String]]("description") ~
     get[Int]("status") ~
     get[Date]("created") map {  case id ~ title ~ description ~ status ~ created =>
       Incident(Some(id), title, description, Status.fromInt(status).get, created)

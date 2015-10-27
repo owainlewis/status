@@ -5,7 +5,7 @@ import repository.UpdateRepository
 
 case class Incident(id: Option[Long],
                     title: String,
-                    description: String,
+                    description: Option[String],
                     status: Status,
                     created: java.util.Date) extends extensions.Time {
 
