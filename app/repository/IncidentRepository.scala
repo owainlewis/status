@@ -25,8 +25,10 @@ trait IncidentRepositoryFunctions {
 
   /**
    * Return all incidents from the database
+   * 
+   * TODO (add ability to filter by date range as well as number)
    */
-  def all(limit: Int = 100): Seq[Incident] = DB.withConnection { implicit c =>
+  def all(limit: Int = 50): Seq[Incident] = DB.withConnection { implicit c =>
     SQL(s"SELECT * FROM incidents ORDER BY id DESC LIMIT {limit}")
       .on('limit -> limit).as(rowParser.*)
   }
