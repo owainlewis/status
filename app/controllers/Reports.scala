@@ -1,6 +1,7 @@
 package controllers
 
 import play.api.mvc._
+import repository.IncidentRepository
 
 class Reports extends Controller {
   /**
@@ -9,7 +10,8 @@ class Reports extends Controller {
     * Summary of incidents for this last 7 days (keep it simple for now)
     *
     */
-  def index = Action {
-    NotImplemented
+  def index = Action { implicit request =>
+    val incidents = IncidentRepository.allIncidentsThisWeek()
+    Ok(views.html.reports.index(incidents))
   }
 }

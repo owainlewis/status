@@ -1,0 +1,35 @@
+@(incidents: Seq[model.Incident])(implicit request: play.api.mvc.RequestHeader)
+
+@import helpers.ViewHelper.pluralize
+
+@admin("Reports") {
+
+<div class="col-md-12">
+    <div class="metric clear">
+        <h1>Last 7 Days</h1>
+        <p>Showing incidents over the last 7 days</p>
+    </div>
+</div>
+
+<div class="col-md-4">
+  <div class="metric">
+      Incidents
+      <span>@incidents.length</span>
+  </div>
+</div>
+
+<div class="col-md-4">
+  <div class="metric">
+      Resolved
+      <span>@incidents.count(_.status.intValue == 4)</span>
+  </div>
+</div>
+
+<div class="col-md-4">
+  <div class="metric">
+    Active
+    <span>@incidents.count(_.status.intValue != 4)</span>
+  </div>
+</div>
+
+}

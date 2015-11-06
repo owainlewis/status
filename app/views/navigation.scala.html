@@ -4,6 +4,7 @@
         <nav>
             <ul>
                 <li><a href="@routes.Incidents.index">Incidents</a></li>
+                <li><a href="@routes.Reports.index">Reports</a></li>
                 @if(!request.session.isEmpty) {
                 <li><a href="@routes.Incidents.add">Create incident</a></li>
                 }

@@ -36,10 +36,10 @@ trait IncidentRepositoryFunctions {
   /**
     * Return all incidents for the last 7 days
     *
-    * @return A list of incidents that have occured in the last 7 days
+    * @return A list of incidents that have occurred in the last 7 days
     */
   def allIncidentsThisWeek(): List[Incident] = DB.withConnection { implicit c =>
-    SQL("SELECT * FROM incidents WHERE created_at > current_date - interval '7 days' ORDER BY id DESC")
+    SQL("SELECT * FROM incidents WHERE created > current_date - interval '7 days' ORDER BY id DESC")
       .as(rowParser.*)
   }
 
