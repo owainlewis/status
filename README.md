@@ -1,8 +1,8 @@
 # Status (Work In Progress)
 
-An open source, self hosted status page application for communicating service incidents to customers.
-
 > If you're using status or have any feedback ideas I'd love to hear them. Pull requests and feature suggestions always welcome : )
+
+An open source, self hosted status page application for communicating service incidents to customers.
 
 It is heavily inspired by status.heroku.com and other status page applications such as https://developers.facebook.com/status. This is a very early first attempt put together over a day or two so obviously it's pretty rough. Feel free to submit suggestions, feature requests or fixes.
 
