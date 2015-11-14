@@ -1,4 +1,4 @@
-# Status (Work In Progress)
+# STATUS
 
 > If you're using status or have any feedback ideas I'd love to hear them. Pull requests and feature suggestions always welcome : )
 
