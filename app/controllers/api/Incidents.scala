@@ -20,24 +20,8 @@ class Incidents extends Controller {
     } getOrElse NotFound
   }
 
-  private def createIncident(json: JsValue): Status = {
-    json.asOpt[IncidentData].map { incident =>
-      IncidentRepository.create(incident)
-      Ok
-    }.getOrElse {
-      BadRequest
-    }
-  }
-
   def create = WithBasicAuth { implicit request =>
     request.body.asJson.map (json => createIncident(json)) getOrElse BadRequest
-  }
-
-  private def updateIncident(id: Long, json: JsValue): Status = {
-    json.asOpt[IncidentData].map { data =>
-      IncidentRepository.update(id, data)
-      Ok
-    }.getOrElse { BadRequest }
   }
 
   def update(id: Long) = WithBasicAuth { implicit request =>
@@ -49,5 +33,23 @@ class Incidents extends Controller {
       IncidentRepository.delete(id)
       Ok
     } getOrElse NotFound
+  }
+  
+  /////////////////////////////////////////////////////////////////////////////////////////
+  
+  private def createIncident(json: JsValue): Status = {
+    json.asOpt[IncidentData].map { incident =>
+      IncidentRepository.create(incident)
+      Ok
+    }.getOrElse {
+      BadRequest
+    }
+  }
+  
+  private def updateIncident(id: Long, json: JsValue): Status = {
+    json.asOpt[IncidentData].map { data =>
+      IncidentRepository.update(id, data)
+      Ok
+    }.getOrElse { BadRequest }
   }
 }
