@@ -4,7 +4,7 @@
 
 An open source, self hosted status page application for communicating service incidents to customers.
 
-It is heavily inspired by status.heroku.com and other status page applications such as https://developers.facebook.com/status. This is a very early first attempt put together over a day or two so obviously it's pretty rough. Feel free to submit suggestions, feature requests or fixes.
+It is heavily inspired by https://status.heroku.com and other status page applications such as https://developers.facebook.com/status. This is a very early first attempt put together over a day or two so obviously it's pretty rough. Feel free to submit suggestions, feature requests or fixes.
 
 A demo is available at https://systemstatus.herokuapp.com/
 
