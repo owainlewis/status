@@ -5,7 +5,7 @@ import play.api.test._
 import play.api.test.Helpers._
 
 @RunWith(classOf[JUnitRunner])
-class ApplicationSpec extends Specification {
+class BasicRenderingSpec extends Specification {
 
   private def getStatus(url: String) =
     status(route(FakeRequest(GET, url)).get)

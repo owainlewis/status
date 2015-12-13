@@ -5,58 +5,58 @@
 # Home page
 # ===============================================================
 
-GET     /                           controllers.Incidents.index
+GET           /                                       controllers.Incidents.index
 
 # Auth
 # ===============================================================
 
-GET    /login                        controllers.Auth.login
-POST   /login                        controllers.Auth.authenticate
-GET    /logout                       controllers.Auth.logout
+GET           /login                                  controllers.Auth.login
+POST          /login                                  controllers.Auth.authenticate
+GET           /logout                                 controllers.Auth.logout
 
 # Components
 # ===============================================================
 
-GET /components                       controllers.Components.index
+GET           /components                             controllers.Components.index
 
 # Incidents
 # ===============================================================
 
-GET  /incidents                       controllers.Incidents.index
-POST /incidents                       controllers.Incidents.create
+GET           /incidents                              controllers.Incidents.index
+POST          /incidents                              controllers.Incidents.create
 
-GET  /incidents/:id                   controllers.Incidents.show(id: Long)
-GET  /incidents/:id/edit              controllers.Incidents.edit(id: Long)
+GET           /incidents/:id                          controllers.Incidents.show(id: Long)
+GET           /incidents/:id/edit                     controllers.Incidents.edit(id: Long)
 
 # Should be a PUT with Ajax
 
-POST  /incidents/:id                  controllers.Incidents.update(id: Long)
+POST          /incidents/:id                          controllers.Incidents.update(id: Long)
 
 # Reports
 # ===============================================================
 
-GET /reports                          controllers.Reports.index
+GET           /reports                                controllers.Reports.index
 
 # Admin Pages
 # ===============================================================
 
-GET  /admin/incidents/new             controllers.Incidents.add
-GET /admin/incidents/:id/updates/new  controllers.Updates.add(id: Long)
-POST /admin/incidents/:id/updates     controllers.Updates.create(id: Long)
+GET           /admin/incidents/new                    controllers.Incidents.add
+GET           /admin/incidents/:id/updates/new        controllers.Updates.add(id: Long)
+POST          /admin/incidents/:id/updates            controllers.Updates.create(id: Long)
 
 # API
 # ===============================================================
 
-GET    /api/v1/incidents              controllers.api.Incidents.index
-GET    /api/v1/incidents/:id          controllers.api.Incidents.show(id: Long)
-DELETE /api/v1/incidents/:id          controllers.api.Incidents.delete(id: Long)
-PUT    /api/v1/incidents/:id          controllers.api.Incidents.update(id: Long)
+GET           /api/v1/incidents                       controllers.api.Incidents.index
+GET           /api/v1/incidents/:id                   controllers.api.Incidents.show(id: Long)
+DELETE        /api/v1/incidents/:id                   controllers.api.Incidents.delete(id: Long)
+PUT           /api/v1/incidents/:id                   controllers.api.Incidents.update(id: Long)
 
-POST   /api/v1/incidents              controllers.api.Incidents.create
+POST          /api/v1/incidents                       controllers.api.Incidents.create
 
 
 
 # Misc
 # ===============================================================
 
-GET     /assets/*file               controllers.Assets.versioned(path="/public", file: Asset)
+GET           /assets/*file                           controllers.Assets.versioned(path="/public", file: Asset)
