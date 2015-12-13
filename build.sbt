@@ -14,7 +14,8 @@ libraryDependencies ++= Seq(
   "com.typesafe.play" %% "anorm"      % "2.4.0",
   "joda-time"          % "joda-time"  % "2.7",
   "org.postgresql"     % "postgresql" % "9.4-1204-jdbc42",
-  specs2 % Test
+  specs2 % Test,
+  "org.scalacheck" %% "scalacheck" % "1.12.5" % Test
 )
 
 resolvers += "scalaz-bintray" at "http://dl.bintray.com/scalaz/releases"

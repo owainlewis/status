@@ -8,10 +8,18 @@ sealed trait Status {
 
 object Status {
   def fromInt(n: Int): Option[Status] = n match {
-    case 1 => Some(Investigating)
-    case 2 => Some(Identified)
-    case 3 => Some(Monitoring)
-    case 4 => Some(Resolved)
+    case Investigating.intValue => Some(Investigating)
+    case Identified.intValue => Some(Identified)
+    case Monitoring.intValue => Some(Monitoring)
+    case Resolved.intValue => Some(Resolved)
+    case _ => None
+  }
+
+  def fromString(str: String): Option[Status] = str match {
+    case Investigating.name => Some(Investigating)
+    case Identified.name => Some(Identified)
+    case Monitoring.name => Some(Monitoring)
+    case Resolved.name => Some(Resolved)
     case _ => None
   }
 
