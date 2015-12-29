@@ -13,19 +13,10 @@ import forms.IncidentData
  * 3. Email
  */
 object Dispatcher {
-
-  /**
-   * Send notifications
-   *
-   */
   def dispatch(data: IncidentData) = {
-
     if (Config.slackEnabled) {
-      Config.slackURL match {
-        case Some(url) =>
-          new Slack(url).notify(Notification(data.title))
-          ()
-        case None => ()
+      Config.slackURL foreach { url =>
+        new Slack(url).notify(Notification(data.title))
       }
     }
   }
