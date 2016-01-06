@@ -27,5 +27,6 @@ final class BasicAuthAction(username: String, password: String)
 }
 
 object BasicAuthAction {
-  def apply(username: String, password: String) = new BasicAuthAction(username, password)
+  def apply(username: String, password: String) = 
+    new BasicAuthAction(username, password)
 }
