@@ -10,9 +10,7 @@ import repository.{UpdateRepository, IncidentRepository}
 class Incidents extends Controller with Secured {
 
   private val slack = new Slack(Config.slackURL.get)
-
-  // Public actions
-
+  
   def index = Action { implicit request =>
     val incidents = IncidentRepository.allGroupedByDate()
     val active    = IncidentRepository.active().length
