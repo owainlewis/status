@@ -18,12 +18,11 @@ trait Secured {
 }
 
 class Auth extends Controller {
+  
   private val loginForm = Form(
     mapping("username" -> nonEmptyText, "password" -> nonEmptyText)(Login.apply)(Login.unapply)
-      verifying ("Invalid email or password", credentials => check(credentials))
-  )
+      verifying ("Invalid email or password", credentials => check(credentials)))
 
-  /** TODO get these from config */
   private def check(login: Login): Boolean =
     login.username == Config.authUser && login.password == Config.authPass
 
