@@ -13,11 +13,6 @@ object Notification {
 }
 
 class Slack(url: String) {
-
-  /**
-   * Send a Slack incoming web hook notification
-   *
-   */
   def notify(notification: Notification): Future[WSResponse] =
     WS.url(url).post(Json.toJson(notification))
 
