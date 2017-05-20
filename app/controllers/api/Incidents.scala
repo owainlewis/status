@@ -7,7 +7,6 @@ import play.api.libs.json._
 import forms.IncidentData
 
 class Incidents extends Controller {
-
   private val WithBasicAuth = BasicAuthAction(Config.authUser, Config.authPass)
 
   def index = WithBasicAuth {
@@ -34,9 +33,7 @@ class Incidents extends Controller {
       Ok
     } getOrElse NotFound
   }
-  
-  /////////////////////////////////////////////////////////////////////////////////////////
-  
+
   private def createIncident(json: JsValue): Status = {
     json.asOpt[IncidentData].map { incident =>
       IncidentRepository.create(incident)
